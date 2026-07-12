@@ -1,0 +1,3 @@
+export type SocialLink = { label: string; href: string; icon: string };
+export type Track = { id: string; title: string; cover: string; duration: string; plays: number; likes: number; comments: number; reposts: number; releasedAt: string; waveform: number[] };
+export type Artist = { id: string; name: string; username: string; verified: boolean; location: string; country: string; genres: string[]; bio: string; monthlyListeners: number; totalPlays: number; followers: number; following: number; tracks: number; albums: number; playlists: number; joinedAt: string; avatarUrl: string; bannerUrl: string; website: string; email?: string; socials: SocialLink[]; achievements: string[]; equipment: string[]; influences: string[] };
