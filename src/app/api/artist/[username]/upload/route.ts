@@ -1,0 +1,3 @@
+import { NextResponse, type NextRequest } from 'next/server';
+const allowedTargets = new Set(['avatar', 'banner']);
+export async function POST(request: NextRequest) { const formData = await request.formData(); const target = String(formData.get('target') ?? ''); const file = formData.get('file'); if (!allowedTargets.has(target) || !(file instanceof File)) return NextResponse.json({ error: 'A valid avatar or banner image is required.' }, { status: 400 }); if (!file.type.startsWith('image/')) return NextResponse.json({ error: 'Only image uploads are supported.' }, { status: 415 }); return NextResponse.json({ url: `https://storage.example.com/musify/${target}/${crypto.randomUUID()}-${file.name}`, target }); }
