@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server";import {tracks} from "@/lib/mock-data";export async function GET(request:Request){const q=new URL(request.url).searchParams.get("q")?.trim().toLowerCase();const result=q?tracks.filter(t=>[t.title,t.artist,t.genre].some(v=>v.toLowerCase().includes(q))):tracks;return NextResponse.json({data:result,meta:{total:result.length}})}
