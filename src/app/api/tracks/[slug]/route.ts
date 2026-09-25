@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server";import {tracks} from "@/lib/mock-data";export async function GET(_:Request,{params}:{params:Promise<{slug:string}>}){const {slug}=await params;const track=tracks.find(t=>t.slug===slug);if(!track)return NextResponse.json({error:"Track not found"},{status:404});return NextResponse.json({data:track})}
